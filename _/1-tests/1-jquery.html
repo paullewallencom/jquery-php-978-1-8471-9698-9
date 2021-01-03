@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<script type="text/javascript" src="../jquery.min.js"></script>
+		<script type="text/javascript">
+			function run_test(){
+				$('.testme span').html('hi!');
+			}
+		</script>
+	</head>
+	<body>
+		<h1 class="testme"><span>this will change</span></h1>
+		<p>this will not</p>
+		<p class="testme">this will also not</p>
+		<p class="testme"><span>this will change</span></p>
+		<a href="javascript:run_test()">do it</a>
+	</body>
+</html>

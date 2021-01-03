@@ -1,0 +1,14 @@
+<?php
+$form_rules=array(
+	'email'=>array(
+		'required'=>true,
+		'email'=>true,
+		'remote'=>'form.check-email.php'
+	),
+	'password'=>array(
+		'required'=>true
+	),
+	'password2'=>array(
+		'equalTo'=>'#password'
+	)
+);

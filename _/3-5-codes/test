@@ -1,0 +1,25 @@
+<p>
+	test<br />
+	</p>
+	<p>
+		{{TABSTART}}<br />
+		</p>
+		<p>
+			test1<br />
+			</p>
+			<p>
+				{{TABPAGE}}<br />
+				</p>
+				<p>
+					test2<br />
+					</p>
+					<p>
+						{{TABPAGE}}<br />
+						</p>
+						<p>
+							test3<br />
+							</p>
+							<p>
+								{{TABEND}}<br />
+								</p>
+

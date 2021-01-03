@@ -1,0 +1,43 @@
+<html>
+	<head>
+		<script src="../jquery.min.js"></script>
+		<script src="../datatables/media/js/jquery.dataTables.js"></script>
+		<style type="text/css">
+			@import "../datatables/media/css/demo_table.css";
+			table{width:100%}
+		</style>
+		<script>
+		jQuery.fn.dataTableExt.oApi.fnSetFilteringDelay = function ( oSettings, iDelay ) {
+			iDelay  = (iDelay && (/^[0-9]+$/.test(iDelay))) ? iDelay : 250;
+			var $this = this, oTimerId;
+			var anControl = $( 'div.dataTables_filter input:text' );
+			anControl.unbind( 'keyup' ).bind( 'keyup', function() {
+				var $$this = $this;
+				window.clearTimeout(oTimerId);
+				oTimerId = window.setTimeout(function() {
+					$$this.fnFilter( anControl.val() );
+				}, iDelay);
+			});
+			return this;
+		}
+		$(document).ready(function(){
+			$('#the_table').dataTable({
+				'bProcessing':true,
+				'bServerSide':true,
+				'sAjaxSource':'get_data.php'
+			}).fnSetFilteringDelay();
+		});
+		</script>
+	</head>
+	<body>
+		<div style="width:500px">
+		<table id="the_table">
+			<thead>
+				<tr><th>Country</th><th>City</th><th>Latitude</th><th>Longitude</th></tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+	<head>
+		<script type="text/javascript" src="../jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(subscribers_init);
+			function subscribers_init(){
+				$('#subscribers li a:first-child')
+					.click(delete_subscriber);
+			}
+			function delete_subscriber(){
+				var id=this.href.replace(/.*=/,'');
+				this.id='delete_link_'+id;
+				if(confirm('Are you sure you want to delete this subscriber?'))
+					$.getJSON('delete.php?ajax=true&id='+id, remove_row);
+				return false;
+			}
+			function remove_row(data){
+				if(!data.success)
+					return alert(data.error);
+				$('#delete_link_'+data.id)
+					.closest('li')
+					.slideUp('slow',function(){
+						$(this).remove();
+					});
+			}
+		</script>
+	</head>
+	<body>
+		<ul id="subscribers">
+			<li>
+				<a href="delete.php?id=3">[x]</a>
+				<a href="user.php?id=3">Albertus Ackleton</a>
+			</li>
+			<li>
+				<a href="delete.php?id=6">[x]</a>
+				<a href="user.php?id=6">Bob Burry</a>
+			</li>
+			<li>
+				<a href="delete.php?id=2">[x]</a>
+				<a href="user.php?id=2">Cora Cuddlesby</a>
+			</li>
+			<li>
+				<a href="delete.php?id=5">[x]</a>
+				<a href="user.php?id=5">Derren Drufus</a>
+			</li>
+		</ul>
+	</body>
+</html>

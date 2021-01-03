@@ -1,0 +1,26 @@
+<html>
+	<head>
+		<script src="../jquery.min.js"></script>
+		<script src="../ckeditor/ckeditor.js"></script>
+		<script>
+		$(document).ready(function(){
+			$('textarea.rte').each(function(){
+				CKEDITOR.replace(this.name);
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<form action="page2.php" method="post">
+			<table width="100%">
+				<tr>
+					<th style="width:120px">Page Text</th>
+					<td>
+						<textarea class="rte" style="width:100%;height:200px;" name="body"></textarea>
+					</td>
+				</tr>
+				<tr><th colspan="2"><input type="submit" /></th></tr>
+			</table>
+		</form>
+	</body>
+</html>

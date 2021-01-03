@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<script type="text/javascript" src="../jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(setup_country_change);
+			function setup_country_change(){
+				$('#country').change(update_cities);
+			}
+			function update_cities(){
+				var country=$('#country').attr('value');
+				$.get('get_cities.php?country='+country, show_cities);
+			}
+			function show_cities(res){
+				$('#cities').html(res);
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<table>
+				<tr><th>Country</th><td>
+					<select name="country" id="country">
+						<option value=""> -- please choose -- </option>
+						<option value="ie">Ireland</option>
+						<option value="uk">Great Britain</option>
+					</select>
+				</tr>
+				<tr>
+					<th>Cities</th>
+					<td id="cities">please choose a country first</td>
+				</tr>
+			</table>
+	</body>
+</html>

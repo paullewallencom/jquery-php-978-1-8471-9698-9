@@ -1,0 +1,17 @@
+<?php
+$form_rules=array(
+	'name'=>array(
+		'required'=>true
+	),
+	'email'=>array(
+		'required'=>true,
+		'email'=>true
+	),
+	'job_status'=>array(
+		'required'=>true
+	),
+	'comments'=>array(
+		'required'=>true,
+		'minlength'=>10
+	)
+);

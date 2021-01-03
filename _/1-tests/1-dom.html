@@ -1,0 +1,24 @@
+<html>
+	<head>
+		<script type="text/javascript">
+			function run_test(){
+				var i,j,els,els2;
+				els=document.getElementsByTagName('*');
+				for(i in els){
+					if(!/(^| )testme( |$)/.test(els[i].className))continue;
+					els2=els[i].getElementsByTagName('span');
+					for(j in els2){
+						els2[j].innerHTML='hi!';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h1 class="testme"><span>this will change</span></h1>
+		<p>this will not</p>
+		<p class="testme">this will also not</p>
+		<p class="testme"><span>this will change</span></p>
+		<a href="javascript:run_test()">do it</a>
+	</body>
+</html>

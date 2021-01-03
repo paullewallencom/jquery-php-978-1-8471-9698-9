@@ -1,0 +1,30 @@
+<html>
+	<head>
+		<script src="../jquery.min.js"></script>
+		<script src="../datatables/media/js/jquery.dataTables.js"></script>
+		<style type="text/css">
+			@import "../datatables/media/css/demo_table.css";
+			td{padding-right:30px;
+		</style>
+		<script>
+		$(document).ready(function(){
+			$('#the_table').dataTable({
+				'bProcessing':true,
+				'bServerSide':true,
+				'sAjaxSource':'get_data.php'
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<div style="width:500px">
+		<table id="the_table">
+			<thead>
+				<tr><th>Country</th><th>City</th><th>Latitude</th><th>Longitude</th></tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		</div>
+	</body>
+</html>
